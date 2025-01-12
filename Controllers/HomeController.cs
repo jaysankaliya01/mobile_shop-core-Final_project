@@ -34,6 +34,7 @@ namespace mobile_shop_core_.Controllers
         {
             return View();
         }
+        User_Addto_Cart_Page
         public IActionResult User_Home
             ()
         {
