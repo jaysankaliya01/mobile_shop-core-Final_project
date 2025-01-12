@@ -7,6 +7,64 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/mobile_shop_core_.styles.css" asp-append-version="true" />
+
+    <style>
+        /* Ensure the page takes full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Ensure the main content stretches between header and footer */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030; /* Ensure it stays above other elements */
+        }
+
+        /* Push content below the fixed header */
+        .content-offset {
+            padding-top: 70px; /* Adjust to match the height of your navbar */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .social-icons {
+            font-size: 1.5rem; /* Icon size */
+            color: #fff; /* Default icon color */
+            transition: color 0.3s ease; /* Smooth hover effect */
+        }
+
+            .social-icons:hover {
+                color: #007bff; /* Change color on hover (e.g., blue) */
+            }
+
+        .social-icons-container {
+            display: flex;
+            justify-content: center; /* Center-align icons */
+            gap: 15px; /* Spacing between icons */
+            margin-top: 15px; /* Add spacing above the icons */
+            list-style: none; /* Remove default bullet points */
+            padding: 0; /* Remove default padding */
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -50,7 +108,40 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - mobile_shop_core_ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="Image/like_logo.png" alt="Company Logo" class="logo" style="max-width: 100px;">
+                    <p class="mt-2" style="font-size: 0.9rem;">
+                        WE ARE BEST KNOWN FOR OUR SERVICES
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="font-size: 1rem;">GET OFFER & NEWS</h5>
+                    <form id="subscribeForm" class="mt-2">
+                        <div class="input-group mb-2">
+                            <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email" aria-describedby="button-addon2" required style="font-size: 0.85rem;">
+                            <button class="btn btn-primary" type="submit" id="button-addon2" style="font-size: 0.85rem;">Subscribe</button>
+                            <div class="invalid-feedback">Please enter a valid email.</div>
+                        </div>
+                    </form>
+                    <ul class="social-icons-container">
+                        <li><a href="#" class="fa fa-facebook social-icons"></a></li>
+                        <li><a href="#" class="fa fa-twitter social-icons"></a></li>
+                        <li><a href="https://www.linkedin.com/in/vijay-otaradi-678427266/" class="fa fa-linkedin social-icons"></a></li>
+                        <li><a href="https://www.instagram.com/like_zone_mobile_shop/" class="fa fa-instagram social-icons"></a></li>
+                    </ul>
+
+                </div>
+                <div class="col-md-4">
+                    <h5 style="font-size: 1rem;">Contact Us</h5>
+                    <p style="font-size: 0.9rem;">Creative Vijay</p>
+                    <p style="font-size: 0.9rem;">+91 8320852144</p>
+                    <p style="font-size: 0.9rem;">votaradi213@rku.ac.in</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <p style="font-size: 0.85rem;">&copy; 2024 Reserved by Creative Vijay</p>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

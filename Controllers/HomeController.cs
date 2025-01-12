@@ -22,6 +22,7 @@ namespace mobile_shop_core_.Controllers
         {
             return View();
         }
+        // Admin Controller
         public IActionResult Admin_Dashboard()
         {
             return View();
@@ -44,6 +45,181 @@ namespace mobile_shop_core_.Controllers
             return View();
         }
 
+
+
+        //  ================== Products Controllers ========================
+
+        //Mobile_Section
+        //Samsung Products Controllers 
+        public IActionResult Samsung_Buds
+            ()
+        {
+            return View();
+        }
+        public IActionResult Samsung_Mobile
+            ()
+        {
+            return View();
+        }
+        public IActionResult Samsung_Charger
+            ()
+        {
+            return View();
+        }
+        public IActionResult Samsung_Cable
+            ()
+        {
+            return View();
+        }
+        public IActionResult Samsung_Cover
+            ()
+        {
+            return View();
+        }
+
+        //IPhone Products Controllers 
+        public IActionResult IPhone_Buds
+            ()
+        {
+            return View();
+        }
+        public IActionResult IPhone_Mobile
+            ()
+        {
+            return View();
+        }
+        public IActionResult IPhone_Charger
+            ()
+        {
+            return View();
+        }
+        public IActionResult IPhone_Cable
+            ()
+        {
+            return View();
+        }
+        public IActionResult IPhone_Cover
+            ()
+        {
+            return View();
+        }
+
+        //Vivo Products Controllers 
+        public IActionResult Vivo_Buds
+            ()
+        {
+            return View();
+        }
+        public IActionResult Vivo_Mobile
+            ()
+        {
+            return View();
+        }
+        public IActionResult Vivo_Charger
+            ()
+        {
+            return View();
+        }
+        public IActionResult Vivo_Cable
+            ()
+        {
+            return View();
+        }
+        public IActionResult Vivo_Cover
+            ()
+        {
+            return View();
+        }
+
+
+        //OnePlus Products Controllers 
+        public IActionResult OnePlus_Buds
+            ()
+        {
+            return View();
+        }
+        public IActionResult OnePlus_Mobile
+            ()
+        {
+            return View();
+        }
+        public IActionResult OnePlus_Charger
+            ()
+        {
+            return View();
+        }
+        public IActionResult OnePlus_Cable
+            ()
+        {
+            return View();
+        }
+        public IActionResult OnePlus_Cover
+            ()
+        {
+            return View();
+        }
+
+        //MI Products Controllers 
+        public IActionResult MI_Buds
+            ()
+        {
+            return View();
+        }
+        public IActionResult MI_Mobile
+            ()
+        {
+            return View();
+        }
+        public IActionResult MI_Charger
+            ()
+        {
+            return View();
+        }
+        public IActionResult MI_Cable
+            ()
+        {
+            return View();
+        }
+        public IActionResult MI_Cover
+            ()
+        {
+            return View();
+        }
+
+
+        //Realme Products Controllers 
+        public IActionResult Realme_Buds
+            ()
+        {
+            return View();
+        }
+        public IActionResult Realme_Mobile
+            ()
+        {
+            return View();
+        }
+        public IActionResult Realme_Charger
+            ()
+        {
+            return View();
+        }
+        public IActionResult Realme_Cable
+            ()
+        {
+            return View();
+        }
+        public IActionResult Realme_Cover
+            ()
+        {
+            return View();
+        }
+
+
+
+
+
+
+        // Controllers Down Side Area
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
