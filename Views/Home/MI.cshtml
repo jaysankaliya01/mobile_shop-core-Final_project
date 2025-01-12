@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Mobile Section";
+    ViewData["Title"] = "MI";
 }
 <h1>@ViewData["Title"]</h1>
 <style>
@@ -71,38 +71,37 @@
 </style>
 
 <div class="mobile-section">
-    <h2>Select a Mobile Brand</h2>
+    <h2>Mobile</h2>
 
-    <!-- Brand buttons -->
+
     <div class="brand-container">
-        <!-- Samsung Brand -->
-        <div class="brand-card" onclick="Samsung" asp-action="Samsung">
-            <img src="Image/s_phone.jpg" alt="Samsung">
-            <h4>Samsung</h4>
+
+        <div class="brand-card" onclick="window.location.href='XiaomiMobile.aspx'">
+            <img src="Image/x_phone.jpg" alt="Mobile Phone">
+            <h4>Mobile Phone</h4>
         </div>
 
-        <!-- iPhone Brand -->
-        <div class="brand-card" asp-action="IPhone">
-            <img src="Image/Image.jpg" alt="iPhone">
-            <h4>iPhone</h4>
+
+        <div class="brand-card" onclick="window.location.href='XiaomiChargers.aspx'">
+            <img src="Image/x_charger.jpg" alt="Charger">
+            <h4>Charger</h4>
         </div>
 
-        <!-- OnePlus Brand -->
-        <div class="brand-card" asp-action="OnePlus">
-            <img src="Image/o_phone.jpg" alt="OnePlus">
-            <h4>OnePlus</h4>
+
+        <div class="brand-card" onclick="window.location.href='XiaomiCables.aspx'">
+            <img src="Image/x_cable.jpg" alt="Cable">
+            <h4>Cable</h4>
         </div>
 
-        <!-- Xiaomi Brand -->
-        <div class="brand-card" asp-action="MI">
-            <img src="Image/x_phone.jpg" alt="Xiaomi">
-            <h4>Xiaomi</h4>
+        <div class="brand-card" onclick="window.location.href='XiaomiBuds.aspx'">
+            <img src="Image/x_buds.jpg" alt="Buds">
+            <h4>Buds</h4>
         </div>
 
-        <!-- Realme Brand -->
-        <div class="brand-card" asp-action="Realme">
-            <img src="Image/r_phone.jpg" alt="Realme">
-            <h4>Realme</h4>
+
+        <div class="brand-card" onclick="window.location.href='XiaomiCovers.aspx'">
+            <img src="Image/x_cover.jpg" alt="Cover">
+            <h4>Cover</h4>
         </div>
     </div>
 </div>

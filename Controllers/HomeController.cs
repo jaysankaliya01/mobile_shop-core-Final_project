@@ -50,6 +50,44 @@ namespace mobile_shop_core_.Controllers
         //  ================== Products Controllers ========================
 
         //Mobile_Section
+        public IActionResult Mobile_Section
+            ()
+        {
+            return View();
+        }
+        public IActionResult Samsung
+           ()
+        {
+            return View();
+        }
+        public IActionResult Vivo
+           ()
+        {
+            return View();
+        }
+        public IActionResult IPhone
+           ()
+        {
+            return View();
+        }
+        public IActionResult MI
+           ()
+        {
+            return View();
+        }
+        public IActionResult OnePlus
+           ()
+        {
+            return View();
+        }
+        public IActionResult Realme
+           ()
+        {
+            return View();
+        }
+
+
+
         //Samsung Products Controllers 
         public IActionResult Samsung_Buds
             ()
