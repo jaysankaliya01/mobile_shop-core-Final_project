@@ -22,6 +22,23 @@ namespace mobile_shop_core_.Controllers
         {
             return View();
         }
+        public IActionResult Admin_Dashboard()
+        {
+            return View();
+        }
+        public IActionResult User_Aboutus()
+        {
+            return View();
+        }
+        public IActionResult User_Contactus()
+        {
+            return View();
+        }
+        public IActionResult User_Home
+            ()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
