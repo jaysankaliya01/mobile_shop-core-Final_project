@@ -38,6 +38,27 @@ namespace mobile_shop_core_.Controllers
             return View();
         }
 
+
+        // Login Page
+
+        public IActionResult Login_Page()
+        {
+            return View();
+        }
+
+        //Register Page
+        public IActionResult Register_Page()
+        {
+            return View();
+        }
+
+        //ForgetPassword Page
+
+        public IActionResult ForgetPassword_Page()
+        {
+            return View();
+        }
+
         // User_Contactus
         public IActionResult User_Contactus()
         {
