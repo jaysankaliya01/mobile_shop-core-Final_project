@@ -7,4 +7,11 @@
     <RootNamespace>mobile_shop_core_</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Home\Mobile_Accessories.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
