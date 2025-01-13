@@ -24,11 +24,24 @@ namespace mobile_shop_core_.Controllers
             return View();
         }
         // Admin Controller
+
+        //Admin_Dashboard
         public IActionResult Admin_Dashboard()
         {
             return View();
         }
 
+        // Admin_Products
+        public IActionResult Admin_Products()
+        {
+            return View();
+        }
+
+        // Admin_Contactus
+        public IActionResult Admin_Contactus()
+        {
+            return View();
+        }
 
         //  Users Controller
 
