@@ -1,7 +1,72 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    /* Custom styling for the home page */
+    .hero-section {
+        background: url('Image/Image.jpg') no-repeat center center/cover;
+        height: 500px;
+        color: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+    .featured-products .card {
+        margin: 15px;
+    }
+
+    /* Offer section styling */
+    .offer-section {
+        background-color: #ffcc00;
+        padding: 30px;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+        .offer-section h3 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .offer-section p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+    .offer-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    /* Carousel styling */
+    .carousel-item img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+    }
+
+    .carousel-indicators li {
+        background-color: #000;
+    }
+</style>
 <div class="text-center">
     <!-- Hero Section -->
     <div class="hero-section">
@@ -17,7 +82,8 @@
             <!-- Mobile Phone -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="Image/Image.jpg" class="card-img-top" alt="Mobile Phone">
+                    <img src="/Image/Image.jpg" class="card-img-top" alt="Mobile Phone">
+
                     <div class="card-body">
                         <h5 class="card-title">Mobile Phone</h5>
                         <p class="card-text">Latest mobile with cutting-edge technology.</p>
