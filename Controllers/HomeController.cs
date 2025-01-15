@@ -36,6 +36,14 @@ namespace mobile_shop_core_.Controllers
         {
             return View();
         }
+        public IActionResult Admin_View_Products()
+        {
+            return View();
+        }
+        public IActionResult Admin_Manaage_Products()
+        {
+            return View();
+        }
 
         // Admin_Contactus
         public IActionResult Admin_Contactus()
