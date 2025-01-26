@@ -8,6 +8,66 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Image\airtel.png" />
+    <None Include="wwwroot\Image\i12.jpg" />
+    <None Include="wwwroot\Image\i13.jpg" />
+    <None Include="wwwroot\Image\i13pro.jpg" />
+    <None Include="wwwroot\Image\Image.jpg" />
+    <None Include="wwwroot\Image\ise.jpg" />
+    <None Include="wwwroot\Image\i_buds.jpg" />
+    <None Include="wwwroot\Image\i_cable.jpg" />
+    <None Include="wwwroot\Image\i_charger.jpg" />
+    <None Include="wwwroot\Image\i_cover.jpg" />
+    <None Include="wwwroot\Image\i_ear.jpg" />
+    <None Include="wwwroot\Image\i_phone.jpg" />
+    <None Include="wwwroot\Image\i_temp.png" />
+    <None Include="wwwroot\Image\i_watch.jpg" />
+    <None Include="wwwroot\Image\jio.png" />
+    <None Include="wwwroot\Image\like_logo.png" />
+    <None Include="wwwroot\Image\o8t.jpg" />
+    <None Include="wwwroot\Image\o9.jpg" />
+    <None Include="wwwroot\Image\o9pro.jpg" />
+    <None Include="wwwroot\Image\oneplus.png" />
+    <None Include="wwwroot\Image\onord.jpg" />
+    <None Include="wwwroot\Image\o_buds.jpg" />
+    <None Include="wwwroot\Image\o_cable.png" />
+    <None Include="wwwroot\Image\o_charger.jpg" />
+    <None Include="wwwroot\Image\o_cover.jpg" />
+    <None Include="wwwroot\Image\o_phone.jpg" />
+    <None Include="wwwroot\Image\r8.jpg" />
+    <None Include="wwwroot\Image\r8pro.jpg" />
+    <None Include="wwwroot\Image\rc35.jpg" />
+    <None Include="wwwroot\Image\realme.png" />
+    <None Include="wwwroot\Image\rnarzo30.jpg" />
+    <None Include="wwwroot\Image\r_buds.jpg" />
+    <None Include="wwwroot\Image\r_cable.jpg" />
+    <None Include="wwwroot\Image\r_charger.jpg" />
+    <None Include="wwwroot\Image\r_cover.jpg" />
+    <None Include="wwwroot\Image\r_phone.jpg" />
+    <None Include="wwwroot\Image\s21.jpg" />
+    <None Include="wwwroot\Image\sa52.jpg" />
+    <None Include="wwwroot\Image\samsung.png" />
+    <None Include="wwwroot\Image\snote20.jpg" />
+    <None Include="wwwroot\Image\szfold3.jpg" />
+    <None Include="wwwroot\Image\s_buds.jpg" />
+    <None Include="wwwroot\Image\s_cable.jpg" />
+    <None Include="wwwroot\Image\s_charger.jpg" />
+    <None Include="wwwroot\Image\s_cover.jpg" />
+    <None Include="wwwroot\Image\s_phone.jpg" />
+    <None Include="wwwroot\Image\vi.png" />
+    <None Include="wwwroot\Image\x10t.jpg" />
+    <None Include="wwwroot\Image\xiaomi.png" />
+    <None Include="wwwroot\Image\xmi11.jpg" />
+    <None Include="wwwroot\Image\xnote10.jpg" />
+    <None Include="wwwroot\Image\xpocox3.jpg" />
+    <None Include="wwwroot\Image\x_buds.jpg" />
+    <None Include="wwwroot\Image\x_cable.jpg" />
+    <None Include="wwwroot\Image\x_charger.jpg" />
+    <None Include="wwwroot\Image\x_cover.jpg" />
+    <None Include="wwwroot\Image\x_phone.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Views\Home\Mobile_Accessories.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
