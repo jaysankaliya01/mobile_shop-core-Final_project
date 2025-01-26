@@ -1,0 +1,119 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Product Management";
+}
+
+<div class="container mt-5">
+    <h1>Product Management</h1>
+    <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">Add Product</button>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Shop</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Category</td>
+                    <td>@product.Shop</td>
+                    <td>@product.Quantity</td>
+                    <td>@product.Price</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editProductModal-@product.Id">Edit</button>
+                        <form method="post" asp-action="DeleteProduct" class="d-inline">
+                            <input type="hidden" name="id" value="@product.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+
+                <!-- Edit Product Modal -->
+                <div class="modal fade" id="editProductModal-@product.Id" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Product</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" asp-action="EditProduct">
+                                    <input type="hidden" name="Id" value="@product.Id" />
+                                    <div class="mb-3">
+                                        <label for="Name" class="form-label">Product Name</label>
+                                        <input type="text" name="Name" class="form-control" value="@product.Name" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Category" class="form-label">Category</label>
+                                        <input type="text" name="Category" class="form-control" value="@product.Category" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Shop" class="form-label">Shop</label>
+                                        <input type="text" name="Shop" class="form-control" value="@product.Shop" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Quantity" class="form-label">Quantity</label>
+                                        <input type="number" name="Quantity" class="form-control" value="@product.Quantity" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Price" class="form-label">Price</label>
+                                        <input type="number" name="Price" class="form-control" value="@product.Price" required />
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </tbody>
+    </table>
+
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" asp-action="AddProduct">
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Product Name</label>
+                            <input type="text" name="Name" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Category" class="form-label">Category</label>
+                            <input type="text" name="Category" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Shop" class="form-label">Shop</label>
+                            <input type="text" name="Shop" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Quantity" class="form-label">Quantity</label>
+                            <input type="number" name="Quantity" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Price" class="form-label">Price</label>
+                            <input type="number" name="Price" class="form-control" required />
+                        </div>
+                        <button type="submit" class="btn btn-success">Add Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
