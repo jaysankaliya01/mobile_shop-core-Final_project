@@ -1,4 +1,6 @@
-﻿namespace mobile_shop_core_.Models
+﻿using System.Collections.Generic;
+
+namespace mobile_shop_core_.Models
 {
     public class Product
     {
@@ -9,5 +11,15 @@
         public int Quantity { get; set; }
         public decimal Price { get; set; }
 
+    }
+
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Product> Products { get; set; }
     }
 }
