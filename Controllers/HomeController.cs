@@ -30,6 +30,10 @@ namespace mobile_shop_core_.Controllers
         {
             return View();
         }
+        public IActionResult index1()
+        {
+            return View();
+        }
 
         // Admin_Products
         public IActionResult Admin_Products()
