@@ -2,9 +2,91 @@
     ViewData["Title"] = "Admin Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1>Admin Dashboard</h1>
+        <p class="text-muted">Manage your mobile shop effectively</p>
+    </div>
 
-    this is admin dash
+    <!-- Cards for Overview -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Total Stock</h5>
+                    <h2 class="text-primary">1500</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Revenue</h5>
+                    <h2 class="text-success">₹500,000</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Pending Payments</h5>
+                    <h2 class="text-danger">₹50,000</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Management Sections -->
+    <div class="mt-5">
+        <h3>Manage Stock</h3>
+        <table class="table table-bordered mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>iPhone 14</td>
+                    <td>Smartphones</td>
+                    <td>50</td>
+                    <td>₹80,000</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Edit</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more rows dynamically using Razor or JavaScript -->
+            </tbody>
+        </table>
+
+        <h3 class="mt-5">Manage Payments</h3>
+        <table class="table table-bordered mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Payment ID</th>
+                    <th>Customer Name</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PAY12345</td>
+                    <td>John Doe</td>
+                    <td>₹20,000</td>
+                    <td><span class="badge bg-success">Completed</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm">View</button>
+                    </td>
+                </tr>
+                <!-- Add more rows dynamically -->
+            </tbody>
+        </table>
+    </div>
 </div>
