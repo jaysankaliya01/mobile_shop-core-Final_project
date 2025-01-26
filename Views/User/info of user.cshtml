@@ -1,0 +1,277 @@
+﻿            // Admin Controller and Views for Managing Accessories
+            public class AdminAccessoriesController : Controller
+            {
+                private readonly ApplicationDbContext _context;
+
+                public AdminAccessoriesController(ApplicationDbContext context)
+                {
+                    _context = context;
+                }
+
+                // Display all accessories
+                public IActionResult Index()
+                {
+                    var accessories = _context.Accessories.ToList();
+                    return View(accessories);
+                }
+
+                // Add new accessory (GET)
+                public IActionResult Create()
+                {
+                    return View();
+                }
+
+                // Add new accessory (POST)
+                [HttpPost]
+                [ValidateAntiForgeryToken]
+                public IActionResult Create(Accessory accessory)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        _context.Accessories.Add(accessory);
+                        _context.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    return View(accessory);
+                }
+
+                // Edit accessory (GET)
+                public IActionResult Edit(int id)
+                {
+                    var accessory = _context.Accessories.Find(id);
+                    if (accessory == null)
+                    {
+                        return NotFound();
+                    }
+                    return View(accessory);
+                }
+
+                // Edit accessory (POST)
+                [HttpPost]
+                [ValidateAntiForgeryToken]
+                public IActionResult Edit(int id, Accessory accessory)
+                {
+                    if (id != accessory.Id)
+                    {
+                        return NotFound();
+                    }
+
+                    if (ModelState.IsValid)
+                    {
+                        _context.Update(accessory);
+                        _context.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    return View(accessory);
+                }
+
+                // Delete accessory
+                public IActionResult Delete(int id)
+                {
+                    var accessory = _context.Accessories.Find(id);
+                    if (accessory == null)
+                    {
+                        return NotFound();
+                    }
+
+                    _context.Accessories.Remove(accessory);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+
+            // Accessory Model
+            public class Accessory
+            {
+                public int Id { get; set; }
+                public string Name { get; set; }
+                public string Description { get; set; }
+                public decimal Price { get; set; }
+                public int Stock { get; set; }
+                public string ImageUrl { get; set; } // URL for image display
+            }
+
+            // User Controller for Pages like About Us, Contact Us, and Profile
+            public class UserController : Controller
+            {
+                public IActionResult AboutUs()
+                {
+                    return View();
+                }
+
+                public IActionResult ContactUs()
+                {
+                    return View();
+                }
+
+                public IActionResult Cart()
+                {
+                    // Logic for fetching cart items
+                    return View();
+                }
+
+                public IActionResult Search(string query)
+                {
+                    // Logic for searching accessories or products
+                    return View();
+                }
+
+                public IActionResult Profile()
+                {
+                    // Fetch user profile details
+                    return View();
+                }
+
+                public IActionResult Dashboard()
+                {
+                    return View();
+                }
+
+                public IActionResult Gallery()
+                {
+                    return View();
+                }
+            }
+
+            // Razor Views for Admin Panel
+
+            // Index View for Accessories (Views/AdminAccessories/Index.cshtml)
+            @model IEnumerable<Accessory>
+            @{
+                ViewData["Title"] = "Accessories Management";
+            }
+
+            <h1>Accessories Management</h1>
+            <a asp-action="Create" class="btn btn-primary">Add New Accessory</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var accessory in Model)
+                    {
+                        <tr>
+                            <td>@accessory.Name</td>
+                            <td>@accessory.Description</td>
+                            <td>@accessory.Price</td>
+                            <td>@accessory.Stock</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@accessory.Id" class="btn btn-warning">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@accessory.Id" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            // Create and Edit Views for Accessories (Views/AdminAccessories/Create.cshtml and Edit.cshtml)
+            @model Accessory
+            @{
+                ViewData["Title"] = Model.Id == 0 ? "Add Accessory" : "Edit Accessory";
+            }
+
+            <h1>@ViewData["Title"]</h1>
+            <form asp-action="@ViewData["Title"] == "Add Accessory" ? "Create" : "Edit"">
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Price">Price</label>
+                    <input asp-for="Price" type="number" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Stock">Stock</label>
+                    <input asp-for="Stock" type="number" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="ImageUrl">Image URL</label>
+                    <input asp-for="ImageUrl" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+
+            // Razor Views for User Pages
+
+            // About Us (Views/User/AboutUs.cshtml)
+            @{
+                ViewData["Title"] = "About Us";
+            }
+
+            <h1>About Us</h1>
+            <p>Welcome to our mobile shop! We offer a wide range of accessories to enhance your mobile experience.</p>
+
+            // Contact Us (Views/User/ContactUs.cshtml)
+            @{
+                ViewData["Title"] = "Contact Us";
+            }
+
+            <h1>Contact Us</h1>
+            <p>Email: support@mobileshop.com</p>
+            <p>Phone: +123-456-7890</p>
+
+            // Cart (Views/User/Cart.cshtml)
+            @model IEnumerable<Accessory>
+            @{
+                ViewData["Title"] = "Cart";
+            }
+
+            <h1>Your Cart</h1>
+            @if (!Model.Any())
+            {
+                <p>Your cart is empty.</p>
+            }
+            else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Price</td>
+                                <td>1</td>
+                                <td>@item.Price</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
+            // Gallery (Views/User/Gallery.cshtml)
+            @{
+                ViewData["Title"] = "Gallery";
+            }
+
+            <h1>Gallery</h1>
+            <p>Check out some of our featured products!</p>
+            <div class="row">
+                <!-- Example gallery items -->
+                <div class="col-md-4">
+                    <img src="/images/sample1.jpg" class="img-fluid" alt="Sample 1" />
+                </div>
+                <div class="col-md-4">
+                    <img src="/images/sample2.jpg" class="img-fluid" alt="Sample 2" />
+                </div>
+                <div class="col-md-4">
+                    <img src="/images/sample3.jpg" class="img-fluid" alt="Sample 3" />
+                </div>
+            </div>
