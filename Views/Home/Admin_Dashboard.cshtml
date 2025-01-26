@@ -10,40 +10,51 @@
 
     <!-- Cards for Overview -->
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
-                    <h5>Total Stock</h5>
-                    <h2 class="text-primary">1500</h2>
+                    <h5>Total Products</h5>
+                    <h2 class="text-primary">2000</h2>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
-                    <h5>Revenue</h5>
-                    <h2 class="text-success">₹500,000</h2>
+                    <h5>Total Revenue</h5>
+                    <h2 class="text-success">₹1,200,000</h2>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
                     <h5>Pending Payments</h5>
-                    <h2 class="text-danger">₹50,000</h2>
+                    <h2 class="text-danger">₹80,000</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Shops</h5>
+                    <h2 class="text-warning">5</h2>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Management Sections -->
+    <!-- Manage Products -->
     <div class="mt-5">
-        <h3>Manage Stock</h3>
-        <table class="table table-bordered mt-3">
+        <h3>Manage Products</h3>
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">Add Product</button>
+
+        <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
                     <th>Product Name</th>
                     <th>Category</th>
+                    <th>Shop</th>
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Actions</th>
@@ -52,41 +63,72 @@
             <tbody>
                 <tr>
                     <td>iPhone 14</td>
-                    <td>Smartphones</td>
-                    <td>50</td>
+                    <td>Mobile</td>
+                    <td>Shop 1</td>
+                    <td>20</td>
                     <td>₹80,000</td>
                     <td>
                         <button class="btn btn-primary btn-sm">Edit</button>
                         <button class="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>
-                <!-- Add more rows dynamically using Razor or JavaScript -->
-            </tbody>
-        </table>
-
-        <h3 class="mt-5">Manage Payments</h3>
-        <table class="table table-bordered mt-3">
-            <thead class="thead-dark">
                 <tr>
-                    <th>Payment ID</th>
-                    <th>Customer Name</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>PAY12345</td>
-                    <td>John Doe</td>
-                    <td>₹20,000</td>
-                    <td><span class="badge bg-success">Completed</span></td>
+                    <td>Samsung Charger</td>
+                    <td>Charger</td>
+                    <td>Shop 2</td>
+                    <td>100</td>
+                    <td>₹1,500</td>
                     <td>
-                        <button class="btn btn-secondary btn-sm">View</button>
+                        <button class="btn btn-primary btn-sm">Edit</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>
                 <!-- Add more rows dynamically -->
             </tbody>
         </table>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Product Name</label>
+                            <input type="text" class="form-control" id="productName" placeholder="Enter product name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <select class="form-select" id="category">
+                                <option value="Mobile">Mobile</option>
+                                <option value="Cover">Cover</option>
+                                <option value="Charger">Charger</option>
+                                <option value="Cable">Cable</option>
+                                <option value="Buds">Buds</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="shop" class="form-label">Shop</label>
+                            <input type="text" class="form-control" id="shop" placeholder="Enter shop name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="price" placeholder="Enter price">
+                        </div>
+                        <button type="submit" class="btn btn-success">Add Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
