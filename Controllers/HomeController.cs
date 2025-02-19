@@ -10,11 +10,6 @@ namespace mobile_shop_core_.Controllers
         
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
             return View();
@@ -31,10 +26,7 @@ namespace mobile_shop_core_.Controllers
         {
             return View();
         }
-        public IActionResult index1()
-        {
-            return View();
-        }
+     
 
         // Admin_Products
         public IActionResult Admin_Products()
