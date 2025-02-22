@@ -54,33 +54,8 @@ Tramba, Rajkot, Gujarat, India - 360002
 📞 Phone: +91 9904640764 / +91 9714520147  
 
 ## 📍 Find Us Here
-```html
-@{
-    ViewData["Title"] = "User Contact Us Page";
-}
-
-<div class="text-center">
-    <div class="container contact-section">
-        <h2>Contact Us</h2>
-        <div class="row">
-            <div class="col-md-6 info-box">
-                <h5>Get in Touch</h5>
-                <p><strong>Phone:</strong> +91 9904640764</p>
-                <p><strong>Phone:</strong> +91 9714520147</p>
-                <p><strong>Email:</strong> likezonemobileshop@gmail.com</p>
-                <p><strong>Address:</strong> Like Zone Mobile Shop, Tramba, Rajkot, Gujarat, India</p>
-            </div>
-            <div class="col-md-6 map-container">
-                <h5>Find Us Here</h5>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1497.9133076861314!2d70.9084468!3d22.2273058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959b3551aaaaaa3%3A0xdb55ec52f4a4c4f4!2sLike%20Zone%20Mobile%20Shop!5e0!3m2!1sen!2sin!4v1674857150042!5m2!1sen!2sin" 
-                        allowfullscreen=""
-                        loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </div>
-</div>
-```
+Find us at our store location using Google Maps:  
+[📍 LikeZone Mobile Shop - Google Maps](https://www.google.com/maps/place/Like+Zone+Mobile+Shop/@22.2273058,70.9084468,17z/data=!3m1!4b1!4m6!3m5!1s0x3959b3551aaaaaa3:0xdb55ec52f4a4c4f4!8m2!3d22.2273058!4d70.9084468!16s%2Fg%2F11h2yr_fq4)
 
 ## 📜 License
 This project is licensed under the MIT License.
