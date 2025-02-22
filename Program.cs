@@ -1,4 +1,9 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Microsoft.AspNetCore.Mvc;
+using mobile_shop_core_.Area.Admin.Controllers;
+using mobile_shop_core_.Area.User.Controllers;
+using mobile_shop_core_.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,5 +26,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();
