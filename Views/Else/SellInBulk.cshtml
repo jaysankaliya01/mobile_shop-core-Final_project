@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Sell in Bulk";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">How It Works - Sell in Bulk</h2>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>1. Contact Us</h4>
+            <p>Complete the form below. We’ll follow up with a quote and more information about our process to find the best solution for you. If you do not need a quote upfront, you can ship the devices to us to sort and evaluate.</p>
+
+            <form method="post" asp-controller="Sell" asp-action="SellInBulk">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" name="Name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="Email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="devices" class="form-label">Devices Description</label>
+                    <textarea class="form-control" id="devices" name="Devices" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>2. Shipping and Confirmation</h4>
+            <p>We handle the logistics to get the devices to our facility in Hiawatha, IA. Upon receipt, we’ll confirm the arrival of your items and provide you with an estimated completion date for your order.</p>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>3. Inspection and Evaluation</h4>
+            <p>Our team will carefully inspect and evaluate your devices, providing you with an itemized list including the model, condition, price, and data erasure certificate.</p>
+        </div>
+    </div>
+
+    <div class="card mt-4 mb-5">
+        <div class="card-body">
+            <h4>4. Payment Options</h4>
+            <p>We offer multiple payout methods to choose from: <strong>Bank Transfer, Check, & PayPal.</strong></p>
+        </div>
+    </div>
+</div>

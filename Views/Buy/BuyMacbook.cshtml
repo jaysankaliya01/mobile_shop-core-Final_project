@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Buy MacBook - Like Zone Mobile Shop";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy MacBook - Like Zone Mobile Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .product-card:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-card h5 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .price {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h2 class="text-center">Buy MacBook</h2>
+        <p class="text-center">Explore the latest MacBooks with powerful M-series chips, Retina displays, and all-day battery life.</p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="macbook_air_m2.jpg" alt="MacBook Air M2">
+                    <h5>MacBook Air M2 (13-inch, 2023)</h5>
+                    <p class="price">From $999.95 <del>$1,199.95</del></p>
+                    <a href="#" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="macbook_pro_m3.jpg" alt="MacBook Pro M3">
+                    <h5>MacBook Pro M3 (14-inch, 2024)</h5>
+                    <p class="price">From $1,799.95 <del>$1,999.95</del></p>
+                    <a href="#" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="macbook_pro_16.jpg" alt="MacBook Pro 16">
+                    <h5>MacBook Pro M3 Max (16-inch, 2024)</h5>
+                    <p class="price">From $2,499.95 <del>$2,799.95</del></p>
+                    <a href="#" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination with ASP.NET Core Routing -->
+        <nav class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" asp-controller="Buy" asp-action="BuyIphone">1</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Buy" asp-action="BuySamsung">2</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Buy" asp-action="BuyAndroid">3</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Buy" asp-action="BuyIpad">4</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Buy" asp-action="BuySmartwatch">5</a></li>
+                <li class="page-item active"><a class="page-link" asp-controller="Buy" asp-action="BuyMacbook">6</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Buy" asp-action="BuyAccessroies">7</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Buy" asp-action="Clearance">8</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

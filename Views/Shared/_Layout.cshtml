@@ -1,106 +1,71 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - mobile_shop_core_</title>
+    <title>@ViewData["Title"] - for_new_website</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/mobile_shop_core_.styles.css" asp-append-version="true" />
-
-    <style>
-        /* Ensure the page takes full height */
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Ensure the main content stretches between header and footer */
-        .content-wrapper {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Header styling */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1030; /* Ensure it stays above other elements */
-        }
-
-        /* Push content below the fixed header */
-        .content-offset {
-            padding-top: 70px; /* Adjust to match the height of your navbar */
-        }
-
-        /* Footer styling */
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .social-icons {
-            font-size: 1.5rem; /* Icon size */
-            color: #fff; /* Default icon color */
-            transition: color 0.3s ease; /* Smooth hover effect */
-        }
-
-            .social-icons:hover {
-                color: #007bff; /* Change color on hover (e.g., blue) */
-            }
-
-        .social-icons-container {
-            display: flex;
-            justify-content: center; /* Center-align icons */
-            gap: 15px; /* Spacing between icons */
-            margin-top: 15px; /* Add spacing above the icons */
-            list-style: none; /* Remove default bullet points */
-            padding: 0; /* Remove default padding */
-        }
-
-    </style>
+    <link rel="stylesheet" href="~/for_new_website.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">mobile_shop_core_</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Else" asp-action="Index">for_new_website</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="buyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Buy</a>
+                            <ul class="dropdown-menu" aria-labelledby="buyDropdown">
+                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyIphone">Buy iPhone</a></li>
+                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuySamsung">Buy Samsung</a></li>
+                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyAndroid">Buy Android</a></li>
+                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyIpad">Buy iPad/Tablet</a></li>
+                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuySmartwatch">Buy Smartwatch</a></li>
+                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyMacbook">Buy MacBook</a></li>
+                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyAccessroies">Buy Accessories</a></li>
+                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="Clearance">Clearance</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="sellDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sell</a>
+                            <ul class="dropdown-menu" aria-labelledby="sellDropdown">
+                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellIphone">Sell My iPhone</a></li>
+                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellSamsung">Sell My Samsung</a></li>
+                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellAndroid">Sell My Android</a></li>
+                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellSmartwatch">Sell My Smartwatch</a></li>
+                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellIpad">Sell My iPad/Tablet</a></li>
+                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellMicrosoftSurface">Sell My Microsoft Surface</a></li>
+                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellMacbook">Sell My MacBook</a></li>
+                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellMacDesktop">Sell My Mac Desktop</a></li>
+                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellOtheritem">Sell Other Items</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Else" asp-action="SellInBulk">Sell in Bulk</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="repairDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                            <ul class="dropdown-menu" aria-labelledby="repairDropdown">
+                                <li><a class="dropdown-item" asp-controller="More" asp-action="HowItWorks">How It Works</a></li>
+                                <li><a class="dropdown-item" asp-controller="More" asp-action="AboutUs">About Us</a></li>
+                                <li><a class="dropdown-item" asp-controller="More" asp-action="ContactUs">Contact Us</a></li>
+                                <li><a class="dropdown-item" asp-controller="More" asp-action="FAQs">FAQs</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="User_Aboutus">About Us</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Else" asp-action="Login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="User_Contactus">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Mobile_Section">Mobiles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="index1">index</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Admin_Dashboard">Admin Dashboard</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Else" asp-action="Cart">
+                                Cart
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -113,44 +78,55 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+
+    <footer class="bg-dark text-light pt-4 pb-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="Image/like_logo.png" alt="Company Logo" class="logo" style="max-width: 100px;">
-                    <p class="mt-2" style="font-size: 0.9rem;">
-                        WE ARE BEST KNOWN FOR OUR SERVICES
-                    </p>
+                    <h5>Enter Email For Deals!</h5>
+                    <p>Get offers and updates right from your inbox</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email address">
+                        <button class="btn btn-warning">Subscribe</button>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <h5 style="font-size: 1rem;">GET OFFER & NEWS</h5>
-                    <form id="subscribeForm" class="mt-2">
-                        <div class="input-group mb-2">
-                            <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email" aria-describedby="button-addon2" required style="font-size: 0.85rem;">
-                            <button class="btn btn-primary" type="submit" id="button-addon2" style="font-size: 0.85rem;">Subscribe</button>
-                            <div class="invalid-feedback">Please enter a valid email.</div>
-                        </div>
-                    </form>
-                    <ul class="social-icons-container">
-                        <li><a href="#" class="fa fa-facebook social-icons"></a></li>
-                        <li><a href="#" class="fa fa-twitter social-icons"></a></li>
-                        <li><a href="https://www.linkedin.com/in/vijay-otaradi-678427266/" class="fa fa-linkedin social-icons"></a></li>
-                        <li><a href="https://www.instagram.com/like_zone_mobile_shop/" class="fa fa-instagram social-icons"></a></li>
+                <div class="col-md-2">
+                    <h6>Services</h6>
+                    <ul class="list-unstyled">
+                        <li><a asp-controller="Services" asp-action="BuyDevice" class="text-light">Buy A Device</a></li>
+                        <li><a asp-controller="Services" asp-action="SellDevice" class="text-light">Sell A Device</a></li>
+                        <li><a asp-controller="Services" asp-action="RepairDevice" class="text-light">Repair A Device</a></li>
+                        <li><a asp-controller="Services" asp-action="SellInBulk" class="text-light">Sell In Bulk</a></li>
                     </ul>
-
                 </div>
-                <div class="col-md-4">
-                    <h5 style="font-size: 1rem;">Contact Us</h5>
-                    <p style="font-size: 0.9rem;">Creative Vijay</p>
-                    <p style="font-size: 0.9rem;">+91 8320852144</p>
-                    <p style="font-size: 0.9rem;">votaradi213@rku.ac.in</p>
+                <div class="col-md-2">
+                    <h6>Company</h6>
+                    <ul class="list-unstyled">
+                        <li><a asp-controller="Company" asp-action="AboutUs" class="text-light">About Us</a></li>
+                        <li><a asp-controller="Company" asp-action="Careers" class="text-light">Careers</a></li>
+                        <li><a asp-controller="Company" asp-action="ContactUs" class="text-light">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6>Information</h6>
+                    <ul class="list-unstyled">
+                        <li><a asp-controller="Information" asp-action="Blog" class="text-light">Blog</a></li>
+                        <li><a asp-controller="Information" asp-action="FAQs" class="text-light">FAQs</a></li>
+                        <li><a asp-controller="Information" asp-action="PrivacyPolicy" class="text-light">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6>Follow Us</h6>
+                    <div>
+                        <a href="#" class="text-light">Social Media Icons</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="text-center mt-3">
-            <p style="font-size: 0.85rem;">&copy; 2024 Reserved by Creative Vijay</p>
+            <hr>
+            <p class="text-center">©2025 Like Zone Mobile</p>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
