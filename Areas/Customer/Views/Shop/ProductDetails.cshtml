@@ -1,0 +1,253 @@
+﻿@model ProductDetailsVM
+<div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="active">Shop Details </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="shop-area pt-100 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="product-details">
+                    <div class="product-details-img">
+                        <div class="tab-content jump">
+                            <div id="shop-details-1" class="tab-pane large-img-style active">
+                                <img src="@Model.Product.ImageUrl" alt="">
+                                @if(Model.Product.Discount > 0)
+                                {
+                                    <span class="dec-price">-@Model.Product.Discount%</span>
+                                }
+                                <div class="img-popup-wrap">
+                                    <a class="img-popup" href="@Model.Product.ImageUrl"><i class="pe-7s-expand1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="product-details-content ml-70">
+                    <h2>@Model.Product.Name</h2>
+                    <div class="product-details-price">
+                        <span>₹@Math.Round(Model.Product.SellPrice - Model.Product.SellPrice * Model.Product.Discount/100, 2) </span>
+                        <span class="old">₹@Math.Round(Model.Product.SellPrice, 2) </span>
+                    </div>
+                    <div class="pro-details-rating-wrap">
+                        <div class="pro-details-rating">
+                            @for (int i = 0; i < Model.AverageRating; i++)
+                            {
+                                <i class="fa fa-star-o yellow"></i>
+                            }
+                            @for (int i = (int) Model.AverageRating; i < 5; i++)
+                            {
+                                <i class="fa fa-star-o"></i>
+                            }
+                        </div>
+                        <span><a>@Model.Reviews.Count Reviews</a></span>
+                    </div>
+                    <p>
+                        @Html.Raw(Model.Product.ShortDescription)
+                    </p>
+                    <form method="post">
+                        <div class="pro-details-quality">
+                            @if(Model.CartQuantity > 0)
+                            {
+                                <div class="cart-plus-minus">
+                                    <input class="cart-plus-minus-box" name="CartItem.quantity" value="@Model.CartQuantity">
+                                </div>
+                                <div class="pro-details-cart btn-hover">
+                                    <input type="hidden" name="CartItem.productId" value="@Model.Product.ProductId" />
+                                    <button type="submit" asp-action="Update" asp-controller="Cart" >Update Cart</button>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="cart-plus-minus">
+                                    <input class="cart-plus-minus-box" name="quantity" value="1">
+                                </div>
+                                <div class="pro-details-cart btn-hover">
+                                    <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+                                    <button type="submit" asp-action="Add" asp-controller="Cart" formmethod="get">Add To Cart</button>
+                                </div>
+                            }
+
+                            <div class="pro-details-wishlist">
+                                @if (Model.IsInWishlist)
+                                {
+                                    <a title="Remove from wishlist" asp-controller="Wishlist" asp-action="Remove" asp-route-productId="@Model.Product.ProductId"><i class="fa-solid fa-heart"></i></a>
+                                }
+                                else
+                                {
+                                    <a title="Add to Wishlist" asp-controller="Wishlist" asp-action="Add" asp-route-productId="@Model.Product.ProductId"><i class="fa-regular fa-heart"></i></a>
+                                }
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="pro-details-meta">
+                        <span>Category :</span>
+                        <ul>
+                            <li><a href="#">@Model.Product.Category.Name</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="description-review-area pb-90">
+    <div class="container">
+        <div class="description-review-wrapper">
+            <div class="description-review-topbar nav">
+                <a data-toggle="tab" href="#des-details1">Additional information</a>
+                <a class="active" data-toggle="tab" href="#des-details2">Description</a>
+                <a data-toggle="tab" href="#des-details3">Reviews (@Model.Reviews.Count)</a>
+            </div>
+            <div class="tab-content description-review-bottom">
+                <div id="des-details2" class="tab-pane active">
+                    <div class="product-description-wrapper">
+                        @Html.Raw(Model.Product.LongDescription)
+                    </div>
+                </div>
+                <div id="des-details1" class="tab-pane ">
+                    <div class="product-anotherinfo-wrapper">
+                        <ul>
+                            <li><span>Weight</span> 400 g</li>
+                            <li><span>Dimensions</span>10 x 10 x 15 cm </li>
+                            <li><span>Materials</span> 60% cotton, 40% polyester</li>
+                            <li><span>Other Info</span> American heirloom jean shorts pug seitan letterpress</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="des-details3" class="tab-pane">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            @if(Model.Reviews.Count == 0)
+                            {
+                                <h2>There are no reviews for this product!</h2>
+                            }
+                            else
+                            {
+                                foreach(Review review in Model.Reviews)
+                                {
+                                    <div class="review-wrapper">
+                                        <div class="single-review">
+                                            <div class="review-img">
+                                                <img src="@review.User.ProfilePicture" alt="" width="50px">
+                                            </div>
+                                            <div class="review-content">
+                                                <div class="review-top-wrap">
+                                                    <div class="review-left">
+                                                        <div class="review-name">
+                                                            <h4>@review.User.FullName</h4>
+                                                        </div>
+                                                        <div class="review-rating">
+                                                            @for (int i = 0; i < review.Rating; i++)
+                                                            {
+                                                                <i class="fa fa-star-o yellow"></i>
+                                                            }
+                                                            @for (int i = review.Rating; i < 5; i++)
+                                                            {
+                                                                <i class="fa fa-star-o"></i>
+                                                            }
+                                                            @if(Context.Session.GetInt32("UserId")!=null)
+                                                            {
+                                                                <a asp-controller="Review" asp-action="Delete" asp-route-reviewId="@review.ReviewId" class="btn btn-danger">Delete</a>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="review-bottom">
+                                                    <p>@review.ReviewText </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @if(!string.IsNullOrEmpty(review.ReplyText))
+                                        {
+                                            <div class="single-review child-review">
+                                                <div class="review-content">
+                                                    <div class="review-top-wrap">
+                                                        <div class="review-left">
+                                                            <div class="review-name">
+                                                                <h4>Admin</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-bottom">
+                                                        <p>
+                                                            @review.ReplyText
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        
+                                    </div>
+                                }
+                            }
+                            
+                        </div>
+                        <div class="col-lg-5">
+                            @if (Context.Session.GetInt32("UserId") == null)
+                            {
+                                <h2>You are not logged in so you can't give review</h2>
+                            }
+                            else if (!Model.HasOrdered)
+                            {
+                                <h2>You have not ordered this product so you can't give review</h2>
+                            }
+                            else
+                            {
+                            <div class="ratting-form-wrapper pl-50">
+                                <h3>Add a Review</h3>
+                                <div class="ratting-form">
+                                    <form asp-controller="Review" asp-action="@(Model.Review.ReviewId!=0 ? "Update" : "Add")" method="post">
+                                        <div class="star-box">
+                                            <span>Your rating:</span>
+                                                <div class="rating">
+                                                    <input type="radio" id="star5" asp-for="Review.Rating" value="5"><label for="star5">★</label>
+                                                    <input type="radio" id="star4" asp-for="Review.Rating" value="4"><label for="star4">★</label>
+                                                    <input type="radio" id="star3" asp-for="Review.Rating" value="3"><label for="star3">★</label>
+                                                    <input type="radio" id="star2" asp-for="Review.Rating" value="2"><label for="star2">★</label>
+                                                    <input type="radio" id="star1" asp-for="Review.Rating" value="1"><label for="star1">★</label>
+                                                </div>
+                                                <span asp-validation-for="Review.Rating" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="rating-form-style form-submit">
+                                                        <input type="hidden" asp-for="Review.ProductId" value="@Model.Product.ProductId" />
+                                                        @if(Model.Review.ReviewId!=0)
+                                                        {
+                                                            <input type="hidden" asp-for="Review.ReviewId"/>
+                                                        }
+                                                    <textarea asp-for="Review.ReviewText" placeholder="Message"></textarea>
+                                                    <span asp-validation-for="Review.ReviewText" class="text-danger"></span>
+                                                    <input type="submit" value="Submit">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

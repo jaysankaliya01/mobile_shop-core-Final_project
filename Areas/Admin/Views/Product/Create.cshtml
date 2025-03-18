@@ -1,0 +1,185 @@
+﻿@model ProductVM
+
+@{
+	ViewData["Title"] = "Add Product";
+}
+<div class="page-header">
+	<h3 class="fw-bold mb-3">Products</h3>
+	<ul class="breadcrumbs mb-3">
+		<li class="nav-home">
+			<a asp-controller="Home">
+				<i class="icon-home"></i>
+			</a>
+		</li>
+		<li class="separator">
+			<i class="icon-arrow-right"></i>
+		</li>
+		<li class="nav-item">
+			<a asp-controller="Product">Products</a>
+		</li>
+		<li class="separator">
+			<i class="icon-arrow-right"></i>
+		</li>
+		<li class="nav-item">
+			<a asp-controller="Product" asp-action="Create">
+				Add Product
+			</a>
+		</li>
+	</ul>
+</div>
+<form method="post" enctype="multipart/form-data">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<div class="card-title">Add Product</div>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label asp-for="Product.Name"></label>
+							<input class="form-control" asp-for="Product.Name" placeholder="Enter Product Name" />
+							<span asp-validation-for="Product.Name" class="form-text text-danger"></span>
+						</div>
+						<div class="form-group col-md-6">
+							<label asp-for="Product.CategoryId"></label>
+							<select class="form-select form-select" asp-for="Product.CategoryId" asp-items="@Model.CategoriesList">
+								<option disabled selected>-Select Category-</option>
+							</select>
+							<span asp-validation-for="Product.CategoryId" class="form-text text-danger"></span>
+						</div>
+						<div class="form-group col-md-6">
+							<label asp-for="Product.Stock"></label>
+							<input class="form-control" asp-for="Product.Stock" placeholder="Enter Product Stock" />
+							<span asp-validation-for="Product.Stock" class="form-text text-danger"></span>
+						</div>
+						<div class="form-group col-md-6">
+							<label asp-for="Product.Discount"></label>
+							<input class="form-control" asp-for="Product.Discount" placeholder="Enter Discount" />
+							<span asp-validation-for="Product.Discount" class="form-text text-danger"></span>
+						</div>
+						<div class="form-group col-md-6">
+							<label asp-for="Product.CostPrice"></label>
+							<input class="form-control" asp-for="Product.CostPrice" placeholder="Enter Cost Price" />
+							<span asp-validation-for="Product.CostPrice" class="form-text text-danger"></span>
+						</div>
+						<div class="form-group col-md-6">
+							<label asp-for="Product.SellPrice"></label>
+							<input class="form-control" asp-for="Product.SellPrice" placeholder="Enter Sell Price" />
+							<span asp-validation-for="Product.SellPrice" class="form-text text-danger"></span>
+						</div>
+						<div class="form-group attributeContainer">
+							<label>Add Product Attributes</label>
+						</div>
+						<div class="form-group">
+							<button type="button" id="addNewAttributeBtn" class="btn btn-info">Add New Attribute</button>
+						</div>
+						<div class="form-group">
+							<label asp-for="Product.ImageUrl"></label>
+							<input type="file" name="productImage" class="form-control" placeholder="Enter Product Image" accept="image/*" />
+							<span asp-validation-for="Product.ImageUrl" class="form-text text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="Product.ShortDescription"></label>
+							<textarea id="shortDescription" class="form-control" asp-for="Product.ShortDescription" placeholder="Enter Product Short Description"></textarea>
+							<span asp-validation-for="Product.ShortDescription" class="form-text text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="Product.LongDescription"></label>
+							<textarea id="longDescription" class="form-control" asp-for="Product.LongDescription" placeholder="Enter Product Long Description"></textarea>
+							<span asp-validation-for="Product.LongDescription" class="form-text text-danger"></span>
+						</div>
+
+						<div class="form-group">
+							<button type="submit" class="btn btn-success">Add Product</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+@section Scripts{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+
+	<script>
+						$(document).ready(function () {
+			$('#shortDescription, #longDescription').summernote({
+				placeholder: 'Enter description...',
+				tabsize: 2,
+				height: 200,
+				toolbar: [
+					['style', ['bold', 'italic', 'underline', 'clear']],
+					['para', ['ul', 'ol', 'paragraph']],
+					['insert', ['link', 'picture']],
+					['view', ['fullscreen', 'codeview']]
+				]
+			});
+
+			let attributeIndex = @Model.ProductAttributes.Count; // Starting index for new attributes
+			const attributeContainer = $(".attributeContainer");
+
+			// Function to create attribute fields
+					function createAttributeField(index) {
+			return `
+				<div class="attribute row mb-2">
+					<div class="col-md-5">
+						<input class="form-control attribute-name"
+							   name="ProductAttributes[${index}].Name"
+							   placeholder="Attribute name"
+							   data-val="true"
+							   data-val-required="Attribute name is required"
+							   aria-describedby="ProductAttributes[${index}].Name-error"
+							   />
+						<span class="text-danger field-validation-valid"
+							  data-valmsg-for="ProductAttributes[${index}].Name"
+							  data-valmsg-replace="true"></span>
+					</div>
+					<div class="col-md-5">
+						<input class="form-control attribute-value"
+							   name="ProductAttributes[${index}].Value"
+							   placeholder="Attribute value"
+							   data-val="true"
+							   data-val-required="Attribute value is required"
+							   aria-describedby="ProductAttributes[${index}].Name-error"
+							   />
+						<span class="text-danger field-validation-valid"
+							  data-valmsg-for="ProductAttributes[${index}].Value"
+							  data-valmsg-replace="true"></span>
+					</div>
+					<div class="col-md-2">
+						<button type="button" class="removeBtn btn btn-danger">Remove</button>
+					</div>
+				</div>
+			`;
+		}
+
+
+			// Add two default attributes on page load
+			for (let i = 0; i < 2; i++) {
+				attributeContainer.append(createAttributeField(attributeIndex++));
+			}
+
+			// Add new attribute fields dynamically
+			$("#addNewAttributeBtn").click(function () {
+				attributeContainer.append(createAttributeField(attributeIndex++));
+				$.validator.unobtrusive.parse("form"); // Apply ASP.NET Core validation to new fields
+			});
+
+			// Remove attribute fields (ensures at least two remain)
+			attributeContainer.on('click', '.removeBtn', function () {
+				if ($(".attribute").length > 2) {
+					$(this).closest('.attribute').remove();
+				} else {
+					alert("At least two attributes are required.");
+				}
+			});
+		});
+
+
+				
+
+	</script>
+
+	<partial name="_ValidationScriptsPartial" />
+}
