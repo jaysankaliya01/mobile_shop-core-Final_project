@@ -1,0 +1,152 @@
+﻿//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.CodeAnalysis.Elfie.Serialization;
+//using Microsoft.CodeAnalysis.Scripting;
+//using System.Net.NetworkInformation;
+//using System.Runtime.InteropServices;
+//using System.Xml.Linq;
+//using System;
+
+//namespace mobile_shop_core_.Controllers
+//{
+//    public class Layout
+//    {
+//        @using Microsoft.AspNetCore.Mvc.Rendering
+//<!DOCTYPE html>
+//<html lang = "en" >
+//< head >
+//    < meta charset= "utf-8" />
+//    < meta name= "viewport" content= "width=device-width, initial-scale=1.0" />
+//    < title > @ViewData["Title"] - for_new_website </ title >
+//    < link rel= "stylesheet" href= "~/lib/bootstrap/dist/css/bootstrap.min.css" />
+//    < link rel= "stylesheet" href= "~/css/site.css" asp-append-version= "true" />
+//    < link rel= "stylesheet" href= "~/for_new_website.styles.css" asp-append-version= "true" />
+//</ head >
+//< body >
+//    < header >
+//        < nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+//            <div class="container-fluid">
+//                <a class="navbar-brand" asp-area="" asp-controller="Else" asp-action="Index">for_new_website</a>
+//                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+//                        aria-expanded="false" aria-label="Toggle navigation">
+//                    <span class="navbar-toggler-icon"></span>
+//                </button>
+//                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+//                    <ul class="navbar-nav flex-grow-1">
+//                        <li class="nav-item dropdown">
+//                            <a class="nav-link dropdown-toggle text-dark" href="#" id="buyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Buy</a>
+//                            <ul class="dropdown-menu" aria-labelledby="buyDropdown">
+//                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyIphone">Buy iPhone</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuySamsung">Buy Samsung</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyAndroid">Buy Android</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyIpad">Buy iPad/Tablet</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuySmartwatch">Buy Smartwatch</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyMacbook">Buy MacBook</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="BuyAccessroies">Buy Accessories</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Buy" asp-action="Clearance">Clearance</a></li>
+//                            </ul>
+//                        </li>
+//                        <li class="nav-item dropdown">
+//                            <a class="nav-link dropdown-toggle text-dark" href="#" id="sellDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sell</a>
+//                            <ul class="dropdown-menu" aria-labelledby="sellDropdown">
+//                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellIphone">Sell My iPhone</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellSamsung">Sell My Samsung</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellAndroid">Sell My Android</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellSmartwatch">Sell My Smartwatch</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellIpad">Sell My iPad/Tablet</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellMicrosoftSurface">Sell My Microsoft Surface</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellMacbook">Sell My MacBook</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellMacDesktop">Sell My Mac Desktop</a></li>
+//                                <li><a class="dropdown-item" asp-controller="Sell" asp-action="SellOtheritem">Sell Other Items</a></li>
+//                            </ul>
+//                        </li>
+//                        <li class="nav-item">
+//                            <a class="nav-link text-dark" asp-area="" asp-controller="Sell" asp-action="Sell">Sell Page</a>
+//                        </li>
+//                        <li class="nav-item">
+//                            <a class="nav-link text-dark" asp-area="" asp-controller="Else" asp-action="SellInBulk">Sell in Bulk</a>
+//                        </li>
+//                        <li class="nav-item dropdown">
+//                            <a class="nav-link dropdown-toggle text-dark" href="#" id="repairDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+//                            <ul class="dropdown-menu" aria-labelledby="repairDropdown">
+//                                <li><a class="dropdown-item" asp-controller="More" asp-action="HowItWorks">How It Works</a></li>
+//                                <li><a class="dropdown-item" asp-controller="More" asp-action="AboutUs">About Us</a></li>
+//                                <li><a class="dropdown-item" asp-controller="More" asp-action="ContactUs">Contact Us</a></li>
+//                                <li><a class="dropdown-item" asp-controller="More" asp-action="FAQs">FAQs</a></li>
+//                            </ul>
+//                        </li>
+//                        <li class="nav-item">
+//                            <a class="nav-link text-dark" asp-area="" asp-controller="Else" asp-action="Login">Login</a>
+//                        </li>
+//                        <li class="nav-item">
+//                            <a class="nav-link text-dark" asp-area="" asp-controller="Else" asp-action="Cart">
+//                                Cart
+//                            </a>
+//                        </li>
+//                    </ul>
+//                </div>
+//            </div>
+//        </nav>
+//    </header>
+//    <div class="container">
+//        <main role = "main" class="pb-3">
+//            @RenderBody()
+//        </main>
+//    </div>
+
+
+//    <footer class="bg-dark text-light pt-4 pb-4">
+//        <div class="container">
+//            <div class="row">
+//                <div class="col-md-4">
+//                    <h5>Enter Email For Deals!</h5>
+//                    <p>Get offers and updates right from your inbox</p>
+//                    <div class="input-group">
+//                        <input type = "email" class="form-control" placeholder="Enter your email address">
+//                        <button class="btn btn-warning">Subscribe</button>
+//                    </div>
+//                </div>
+//                <div class="col-md-2">
+//                    <h6>Services</h6>
+//                    <ul class="list-unstyled">
+//                        <li><a asp-controller="Services" asp-action="BuyDevice" class="text-light">Buy A Device</a></li>
+//                        <li><a asp-controller="Services" asp-action="SellDevice" class="text-light">Sell A Device</a></li>
+//                        <li><a asp-controller="Services" asp-action="RepairDevice" class="text-light">Repair A Device</a></li>
+//                        <li><a asp-controller="Services" asp-action="SellInBulk" class="text-light">Sell In Bulk</a></li>
+//                    </ul>
+//                </div>
+//                <div class="col-md-2">
+//                    <h6>Company</h6>
+//                    <ul class="list-unstyled">
+//                        <li><a asp-controller="Company" asp-action="AboutUs" class="text-light">About Us</a></li>
+//                        <li><a asp-controller= "Company" asp-action= "Careers" class="text-light">Careers</a></li>
+//                        <li><a asp-controller="Company" asp-action="ContactUs" class="text-light">Contact Us</a></li>
+//                    </ul>
+//                </div>
+//                <div class="col-md-2">
+//                    <h6>Information</h6>
+//                    <ul class="list-unstyled">
+//                        <li><a asp-controller="Information" asp-action="Blog" class="text-light">Blog</a></li>
+//                        <li><a asp-controller="Information" asp-action="FAQs" class="text-light">FAQs</a></li>
+//                        <li><a asp-controller="Information" asp-action="PrivacyPolicy" class="text-light">Privacy Policy</a></li>
+//                    </ul>
+//                </div>
+//                <div class="col-md-2">
+//                    <h6>Follow Us</h6>
+//                    <div>
+//                        <a href = "#" class="text-light">Social Media Icons</a>
+//                    </div>
+//                </div>
+//            </div>
+//            <hr>
+//            <p class="text-center">©2025 Like Zone Mobile</p>
+//        </div>
+//    </footer>
+
+//    <script src = "~/lib/jquery/dist/jquery.min.js" ></ script >
+//    < script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+//    <script src = "~/js/site.js" asp-append-version="true"></script>
+//    @await RenderSectionAsync("Scripts", required: false)
+//</body>
+//</html>
+//    }
+//}

@@ -14,6 +14,10 @@ namespace mobile_shop_core_.Controllers
         {
             return View();
         }
+        public IActionResult Buy()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
